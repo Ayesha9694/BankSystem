@@ -79,8 +79,17 @@ class FinancialWidget(QWidget):
         back_icon = QIcon(pixmap.transformed(transform))
         self.back_button.setIcon(back_icon)
         self.back_button.clicked.connect(self.go_back_to_main_menu)
-     
+        self.deposit_button.clicked.connect(self.show_deposit_form)
+        self.transfer_button.clicked.connect(self.show_transfer_form)
 
+        def show_deposit_form(self):
+        self.deposit_widget.show()
+        self.close() 
+        
+    def show_transfer_form(self):
+        self.transfer_widget.show()
+        self.close()
+        
     def go_back_to_main_menu(self):
         self.go_back.emit()
         self.close()
